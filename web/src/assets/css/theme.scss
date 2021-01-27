@@ -1,0 +1,13 @@
+//aside相关
+$aside-bg: #191a23;
+$aside-expand-bg: #000408;
+$aside-text-color: #BFCBD9;
+$aside-text-active-color: #FFFFFF;
+$aside-item-active-bg: #1890ff;
+$aside-min-width: 220px;
+
+:export{
+  asideBg:$aside-bg;
+  asideTextColor:$aside-text-color;
+  asideTextActiveColor:$aside-text-active-color;
+}
