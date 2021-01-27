@@ -8,7 +8,9 @@ const defaultState = {
   // 导航栏标签
   navTags: [],
   // token
-  token: null
+  token: null,
+  // 记录取消请求的数组
+  cancelToken: []
 }
 const state = {
   ...defaultState,

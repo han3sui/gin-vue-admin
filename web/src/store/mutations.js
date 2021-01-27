@@ -32,8 +32,13 @@ const mutations = {
       state.navTags.push(res)
     }
   },
+  // 根据index删除导航标签
   DELETE_NAVTAG (state, index) {
     state.navTags.splice(index, 1)
+  },
+  // 添加取消请求的token
+  PUSH_CANCEL_TOKEN (state, res) {
+    state.cancelToken.push(res)
   }
 }
 export default mutations

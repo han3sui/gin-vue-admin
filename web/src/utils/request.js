@@ -79,3 +79,5 @@ service.interceptors.response.use(response => {
     return Promise.reject(new Error('请求超时, 请刷新重试'))
   }
 })
+
+export default service
