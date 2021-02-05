@@ -1,5 +1,6 @@
 import store from '../store'
 import { v4 as uuidv4 } from 'uuid'
+
 /**
  * 判断是否移动端，根据userAgent和屏幕宽度判断
  * @returns {boolean|boolean}
@@ -65,7 +66,12 @@ export function storage () {
   const clear = () => {
     window.localStorage.clear()
   }
-  return { get, set, del, clear }
+  return {
+    get,
+    set,
+    del,
+    clear
+  }
 }
 
 /**
@@ -87,7 +93,12 @@ export function session () {
   const clear = () => {
     window.sessionStorage.clear()
   }
-  return { get, set, del, clear }
+  return {
+    get,
+    set,
+    del,
+    clear
+  }
 }
 
 /**
@@ -96,4 +107,28 @@ export function session () {
  */
 export function uuid () {
   return uuidv4()
+}
+
+/**
+ * 深拷贝
+ * @param target
+ * @returns {{}|RegExp|*[]|Date|*}
+ */
+export function cloneDeep (target) {
+  // 如果是正则
+  if (target instanceof RegExp) return RegExp(target)
+  // 如果是时间
+  if (target instanceof Date) return new Date(target)
+  // 如果是null、普通类型数据
+  if (target === null || typeof target !== 'object') return target
+  // 如果是数组
+  if (Array.isArray(target)) return [...target]
+  // 剩余情况，只能是Object
+  const cloneObj = {}
+  for (const key in target) {
+    if (Object.prototype.hasOwnProperty.call(target, key)) {
+      cloneObj[key] = target[key]
+    }
+  }
+  return cloneObj
 }

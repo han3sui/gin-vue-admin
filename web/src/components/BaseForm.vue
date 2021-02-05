@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { cloneDeep } from '@/utils/util'
 
 export default {
   name: 'BaseForm',
@@ -104,7 +105,7 @@ export default {
     },
     // 重置表单
     reset: function reset () {
-      this.form = this.cloneDeep(this.defaultForm)
+      this.form = cloneDeep(this.defaultForm)
       this.$refs.form.resetFields()
       this.$refs.form.clearValidate()
     },
@@ -121,35 +122,6 @@ export default {
     // 清空校验
     clearValidate: function clearValidate () {
       this.$refs.form.clearValidate()
-    },
-    cloneDeep (target) {
-      let cloneObj
-      if (target instanceof RegExp) {
-        // 如果是正则
-        cloneObj = RegExp(target)
-      } else if (target instanceof Date) {
-        // 如果是时间类型
-        cloneObj = new Date(target)
-      } else if (target === null || typeof target !== 'object') {
-        // 如果是null或者普通类型数据
-        cloneObj = target
-      } else {
-        // 如果是object类型数据
-        if (Array.isArray(target)) {
-          // 如果是数组
-          cloneObj = []
-          cloneObj = [...target]
-        } else {
-          // 如果是对象
-          cloneObj = {}
-          for (const key in target) {
-            if (target.hasOwnProperty(key)) {
-              cloneObj[key] = this.cloneDeep(target[key])
-            }
-          }
-        }
-      }
-      return cloneObj
     }
   }
 }
