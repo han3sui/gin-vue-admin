@@ -1,0 +1,59 @@
+#服务器配置
+[server]
+#监听地址
+addr = ":9201"
+#数据库类型
+db_type = "mysql"
+#对象存储类型
+oss_type = ""
+#调试模式
+debug = true
+
+#数据库配置
+[mysql]
+#用户名
+user = "root"
+#密码
+password = "root"
+#mysql地址
+addr = "127.0.0.1:3306"
+#数据库名
+db_name = "gin_vue_admin"
+#配置
+config = "charset=utf8mb4&parseTime=True&loc=Local"
+
+#日志配置
+[zap]
+#日志路径
+path = "log"
+#日志级别：debug、info、warn、error、dpanic、panic、fatal
+level = "debug"
+#输出格式：console、json
+format = "console"
+#LowercaseLevelEncoder:小写, LowercaseColorLevelEncoder:小写带颜色,CapitalLevelEncoder: 大写, CapitalColorLevelEncoder: 大写带颜色
+encode_level = "CapitalLevelEncoder"
+#是否输出到控制台
+print = true
+
+#缓存配置
+[redis]
+#redis地址
+addr = "127.0.0.1:6379"
+#redis密码
+password = ""
+#使用的数据库
+db = 0
+
+#鉴权配置
+[jwt]
+#密钥
+secret = "92IcCOlnQaPBDFpy"
+#过期时间，单位秒
+exp = 86400
+
+#对象存储配置
+[oss]
+#腾讯oss
+[oss.tx]
+#阿里oss
+[oss.ali]
